@@ -34,10 +34,77 @@ function playStatistics(){
             min = random;
         }
     }
-    console.log("Sum " + sum + " Max " + max + " Min " + min);
+    console.log("Min value is " + min);
+    console.log("Max value is " + max);
+}
+
+function playStatistics2(){
+    var random;
+    var max = 0;
+    var min = 99;
+    var sum = 0;
+    for (var idx = 0; idx < 8; idx++){
+        random = rollOne();
+        sum += random;
+        if (random > max){
+        max = random;
+        }
+        if(random < min){
+            min = random;
+        }
+    }
+    console.log("Min value is " + min);
+    console.log("Max value is " + max);
+    console.log("Sum value is " + sum);
+}
+
+function playStatistics3(num){
+    var random;
+    var max = 0;
+    var min = 99;
+    var sum = 0;
+    for (var idx = 0; idx < num; idx++){
+        random = rollOne();
+        sum += random;
+        if (random > max){
+        max = random;
+        }
+        if(random < min){
+            min = random;
+        }
+    }
+    console.log("Min value is " + min);
+    console.log("Max value is " + max);
+    console.log("Sum value is " + sum);
+}
+
+
+function playStatistics4(num){
+    var random;
+    var max = 0;
+    var min = 99;
+    var sum = 0;
+    for (var idx = 0; idx < num; idx++){
+        random = rollOne();
+        sum += random;
+        if (random > max){
+        max = random;
+        }
+        if(random < min){
+            min = random;
+        }
+    }
+    var avg = sum / num;
+    console.log("Min value is " + min);
+    console.log("Max value is " + max);
+    console.log("Sum value is " + sum);
+    console.log("Avg value is " + avg);
 }
 
 playStatistics();
+playStatistics2();
+playStatistics3(20);
+playStatistics4(20);
 
 playFives(5);
 
