@@ -107,5 +107,84 @@ function monthName(monthNum){
     return months[monthNum - 1];              
 }
 
-console.log(monthName(2));
+// console.log(monthName(2));
 
+/* 
+5) Now expand monthName() to create monthToDays(monthNum), return the number of days in that month, in the year 2017. Hint: use a SWITCH statement for the days in each month. 
+*/
+
+function monthToDays(monthNum, year){
+    if(monthNum > 12){
+        console.log("Errors. Please enter a valid number");
+    }
+    switch (monthNum) {
+        case 2:
+            if(year % 4 == 0){
+                return 29;
+            }
+            else{
+                return 28;
+            }
+            break;
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            return 31;
+            break;
+        default:
+            return 30;
+            break;
+    }
+}
+
+console.log(monthToDays(4, 1988));
+
+/* 
+6) Despite using his ember expertise to create a glowing SOS visible from space, the days go by and sadly Eduardo is still not rescued. Is it spring yet? It might as well be. Build on monthName() to create daystoMonth(dayNum). If given a day number since the year began, return the current month (assume it is not a Leap Year). Given 75, return "March". 
+*/
+
+
+function daystoMonth(dayNum, year){
+    var month = 1;
+    var days = monthToDays(month, year);
+    while(dayNum > days){
+        month++;
+        days += monthToDays(month, year);
+    }
+    return monthName(month);
+}
+
+function daystoMonthNum(dayNum, year){
+    var month = 1;
+    var days = monthToDays(month, year);
+    while(dayNum > days){
+        month++;
+        days += monthToDays(month, year);
+    }
+    return month;
+}
+
+
+// console.log(daystoMonth(180, 2017));
+
+/* Eduardo builds a Dojo bootcamp on the island. Initially his students only find Ninja Gold in caves, but eventually even his tree sloths can write code quickly! Dojo classes meet Monday thru Friday, so let's reincorporate weekday to our calculations. Construct fullDate(dayNum) to accept number of days so far in 2017, and return a full date string. He hardly remembers that fateful New Year's Eve party, but he knows it was a Saturday. Given 142, return "Monday", May 22, 2017". 
+*/
+
+function fullDate(dayNum, year){
+    var weekday = weekdayName2(dayNum);
+    var month = daystoMonth(dayNum, year);
+    var monthnum = daystoMonthNum(dayNum, year);
+    if(monthnum > 1){
+        for(var i = 1; i < monthnum; i++){
+            dayNum = dayNum - monthToDays(i);
+        }
+    }
+    var day = dayNum;
+    return weekday + ", " + month + " " + day + ", " + year;
+}
+
+console.log(fullDate(142, 2017));
