@@ -171,7 +171,9 @@ function daystoMonthNum(dayNum, year){
 
 // console.log(daystoMonth(180, 2017));
 
-/* Eduardo builds a Dojo bootcamp on the island. Initially his students only find Ninja Gold in caves, but eventually even his tree sloths can write code quickly! Dojo classes meet Monday thru Friday, so let's reincorporate weekday to our calculations. Construct fullDate(dayNum) to accept number of days so far in 2017, and return a full date string. He hardly remembers that fateful New Year's Eve party, but he knows it was a Saturday. Given 142, return "Monday", May 22, 2017". 
+/* 
+
+7) Eduardo builds a Dojo bootcamp on the island. Initially his students only find Ninja Gold in caves, but eventually even his tree sloths can write code quickly! Dojo classes meet Monday thru Friday, so let's reincorporate weekday to our calculations. Construct fullDate(dayNum) to accept number of days so far in 2017, and return a full date string. He hardly remembers that fateful New Year's Eve party, but he knows it was a Saturday. Given 142, return "Monday", May 22, 2017". 
 */
 
 function fullDate(dayNum, year){
@@ -187,4 +189,62 @@ function fullDate(dayNum, year){
     return weekday + ", " + month + " " + day + ", " + year;
 }
 
-console.log(fullDate(142, 2017));
+// console.log(fullDate(142, 2017));
+
+/* 
+8 ) Times files when you're at a Dojo - months in fact. Build fullDate2(dayNum) that will be given a 4-digit integer: the days that have passed since December 31, 2016. This number can stretch into future years! You can assume that any year number divisible by four is a leap year and has a 29-day February. Given 8475, return "Thursday, March 15, 2040".
+*/
+
+function fullDate2(dayNum){
+    var year = 2017;
+    while(dayNum > 365){
+        year += 1;
+        if(year % 4 === 0){
+            dayNum -= 366;
+        }
+        else{
+            dayNum -= 365;
+        }
+    }
+    var weekday = weekdayName2(dayNum);
+    var month = daystoMonth(dayNum, year);
+    var monthnum = daystoMonthNum(dayNum, year);
+    if(monthnum > 1){
+        for(var i = 1; i < monthnum; i++){
+            dayNum = dayNum - monthToDays(i, year);
+        }
+    }
+    var day = dayNum;
+    return weekday + ", " + month + " " + day + ", " + year;
+}
+
+// console.log(fullDate2(8475));
+
+/* 
+9) Eduardo hacks the Google Maps API and adds this long-forgotten island back onto the map. Soon he is rescued! News of his Hemingway-like stoicism make him famous for centuries. Build fullDate3(dayNum) to handle days up to 140,000! Node, years 2100, 2200, 2300 are not leap years (although 2400 is.) Given 139947, return "Tuesday, February 29, 2400".
+*/
+
+function fullDate3(dayNum){
+    var year = 2017;
+    while(dayNum > 365){
+        year += 1;
+        if(year % 4 === 0){
+            dayNum -= 366;
+        }
+        else{
+            dayNum -= 365;
+        }
+    }
+    var weekday = weekdayName2(dayNum);
+    var month = daystoMonth(dayNum, year);
+    var monthnum = daystoMonthNum(dayNum, year);
+    if(monthnum > 1){
+        for(var i = 1; i < monthnum; i++){
+            dayNum = dayNum - monthToDays(i, year);
+        }
+    }
+    var day = dayNum;
+    return weekday + ", " + month + " " + day + ", " + year;
+}
+
+console.log(fullDate2(139947));
