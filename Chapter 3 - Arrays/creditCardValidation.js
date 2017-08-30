@@ -33,4 +33,4 @@ function isCreditCardValid(digitArr){
 }
 
 console.log(isCreditCardValid([5,4,7,3,1,0,9,3,2,9,9,5,5,3,2,8]));
-console.log(isCreditCardValid([5,4,6,2,5,2,9,3,3,4,6,8,8,0,5,6]))
+console.log(isCreditCardValid([5,4,6,2,5,2,9,3,3,4,6,8,8,0,5,6]));
