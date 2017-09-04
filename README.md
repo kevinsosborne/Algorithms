@@ -4,9 +4,7 @@ File structure directory:
 
     * 'CodingDojo' - Algorithms from the Coding Dojo workbook. Completed with JavaScript.
 
-============
 | Appendix |
-============
 
 Coding Dojo workbook information:
 
