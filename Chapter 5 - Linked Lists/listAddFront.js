@@ -17,7 +17,18 @@ function addFront(LL, val){
     LL.head = node;
 }
 
+//Create the list
+var list1 = new sLinkedList();
+var node1 = new listNode(6);
+var node2 = new listNode(7);
+var node3 = new listNode(8);
+list1.head = node1;
+node1.next = node2;
+node2.next = node3;
 
-
-
-
+//Add a new Node to front of list
+//Print head value of list before and after the addition for verification
+console.log(list1.head.val);
+addFront(list1, 9);
+console.log(list1.head.val);
+console.log(list1.head.next.val);
