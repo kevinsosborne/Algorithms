@@ -32,3 +32,4 @@ console.log(list1.head.val);
 addFront(list1, 9);
 console.log(list1.head.val);
 console.log(list1.head.next.val);
+
