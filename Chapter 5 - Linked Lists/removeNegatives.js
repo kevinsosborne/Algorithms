@@ -13,40 +13,33 @@ function sLinkedList(){
 
 // removeNegatives
 sLinkedList.prototype.removeNegatives = function(){
-    var previous = this.head;
-    var current = this.head.next;
+    var previous = null;
+    var temp = null;
+    var current = this.head;
     if(!this.head){
         return this;
     }
     else{
-        if(this.head.val < 0){
-            this.head = this.head.next;
-        }
-        while(current){
+        while(current != null){
             if(current.val < 0){
-                console.log(current.val);
-                if(current.next){
-                    console.log('test');
-                    console.log(previous.next.val);
-                    console.log(current.next.val);
-                    console.log(current.next.next.val);
+                if(previous != null){
                     previous.next = current.next;
-                    current = current.next.next;
-                    }
+                }
                 else{
-                    previous.next = null;
-                    return this;
-                    }
+                    this.head = current.next;
                 }
-            else{
-                previous = previous.next;
+                temp = current;
                 current = current.next;
-                }
+            }
+            else{
+                previous = current;
+                current = current.next;
             }
         }
-        console.log(this);
-        return this;
     }
+    console.log(this);   
+}
+ 
 
 
 
