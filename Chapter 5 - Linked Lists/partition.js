@@ -11,10 +11,29 @@ function sLinkedList(){
     this.head = null;
 }
 
-sLinkedList.prototype.partition = function(val){
-    if(this.head = null){
+sLinkedList.prototype.concatenate = function(head, tail){
+    if(head == null && tail == null){
         return null;
     }
+    if(head == null){
+        return tail;
+    }
+    if(tail == null){
+        return head;
+    }
+    var runner = head;
+    while(runner.next != null){
+        runner = runner.next;
+    }
+    runner.next = tail;
+    return head;
+}
+
+sLinkedList.prototype.partition = function(val){
+    if(this.head == null){
+        return null;
+    }
+    console.log(this);
     var runner = this.head;
     var left = null;
     var right = null;
@@ -38,25 +57,21 @@ sLinkedList.prototype.partition = function(val){
         }
         runner = runner.next;
     }
-    var partitioned = concatenate(left, right);
+    var partitioned = this.concatenate(left, right);
+    console.log(partitioned);
     return partitioned;
 }
 
-sLinkedList.prototype.concatenate = function(head, tail){
-    if(head == null && tail == null){
-        return null;
-    }
-    if(head == null){
-        return tail;
-    }
-    if(tail == null){
-        return head;
-    }
-    var runner = head;
-    while(runner != null){
-        runner = runner.next;
-    }
-    runner.next = tail;
-    return head;
-}
 
+
+var list = new sLinkedList();
+var node1 = new listNode(10);
+var node2 = new listNode(4);
+var node3 = new listNode(100);
+var node4 = new listNode(43);
+list.head = node1;
+node1.next = node2;
+node2.next = node3;
+node3.next = node4;
+
+list.partition(11);
