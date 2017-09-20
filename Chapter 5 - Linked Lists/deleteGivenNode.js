@@ -7,14 +7,11 @@ function listNode(val){
 }
 
 listNode.prototype.removeSelf = function(){
-    if(this.next){
-        var temp = this;
-        var next = this.next;
-        temp = next; 
-        this.next = null;
+        var temp = this.next;
+        this.val = temp.val;
+        this.next = temp.next;
         console.log("A node removed");
         return;
-    }
 }
 
 // SLL function
