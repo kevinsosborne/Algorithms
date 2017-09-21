@@ -10,7 +10,6 @@ listNode.prototype.removeSelf = function(){
         var temp = this.next;
         this.val = temp.val;
         this.next = temp.next;
-        console.log("A node removed");
         return;
 }
 
