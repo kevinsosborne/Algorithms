@@ -13,9 +13,12 @@ function sLinkedList(){
 
 // Copy function
 function copy(LL){
+    if(!LL.head){
+        return LL;
+    }
     if(LL.head){
         var newList = new sLinkedList();
-        var runner = LL.head;
+        var runner = LL.head.next;
         var previousNode = new listNode(LL.head.val);
         newList.head =  previousNode;
     }
