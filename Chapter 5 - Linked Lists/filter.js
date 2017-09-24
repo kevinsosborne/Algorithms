@@ -7,31 +7,48 @@ function listNode(val){
 }
 
 // SLL function
-function sLinekdList(){
+function sLinkedList(){
     this.head = null;
 }
 
-sLinekdList.prototype.filter = function(lowVal, highVal){
+sLinkedList.prototype.filter = function(lowVal, highVal){
     if(!this.head){
         return;
     }
     else{
+        console.log("TEST");
         var runner = this.head;
-        var previous;
+        var previous = null;
+        var temp = null;
         while(runner){
+            console.log(runner.val);
             if(runner.val < lowVal || runner.val > highVal){
-                if(runner == this.head){
-                    this.head = this.head.next;
-                    runner = runner.next;
-                    previous = runner;
-                }
-                else{
-                    
-                    runner = runner.next;
-                    previous = 
-                }
+               if(previous != null){
+                    previous.next = runner.next;
+               }
+               else{
+                   this.head = runner.next;
+               }
+               runner = runner.next;
+            }
+            else{
+                previous = runner;
+                runner = runner.next;
             }
         }
+        console.log(this);
     }
 }
 
+var list = new sLinkedList();
+var node1 = new listNode(-55);
+var node2 = new listNode(-6);
+var node3 = new listNode(7);
+var node4 = new listNode(666);
+
+list.head = node1;
+node1.next = node2;
+node2.next = node3;
+node3.next = node4;
+
+console.log(list.filter(-10,10));
