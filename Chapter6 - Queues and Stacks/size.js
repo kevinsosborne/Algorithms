@@ -1,4 +1,4 @@
-// Create SLQueue method isEmpty() that returns wheather our queue contains no values. 
+// Create SLQueue method size() that returns the number of values in our queue. 
 
 // node function
 function SLNode(value){
@@ -12,14 +12,20 @@ function SLQueue(){
     var tail = null;
 }
 
-SLQueue.prototype.isEmpty = function(){
+SLQueue.prototype.Size = function(){
     if(!this.head){
         console.log("This list is empty");
         return this;
     }
     else{
-        console.log("This list is not empty");
-        return this;
+        var runner = this.head;
+        var count = 0;
+        while(runner){
+            count++;
+            runner = runner.next;
+        }
+        console.log(`Total size of queue is ${count}`);
+        return count;
     }
 }
 
@@ -45,6 +51,5 @@ node1.next = node2;
 node2.next = node3;
 
 list.Display();
-list.isEmpty();
-list2.isEmpty();
+list.Size();
 
