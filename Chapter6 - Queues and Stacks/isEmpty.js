@@ -1,4 +1,4 @@
-// Create SLQueue method front() to return the value at the front of our queue, without removing it.
+// Create SLQueue method isEmpty() that returns wheather our queue contains no values. 
 
 // node function
 function SLNode(value){
@@ -12,15 +12,14 @@ function SLQueue(){
     var tail = null;
 }
 
-SLQueue.prototype.Front = function(){
+SLQueue.prototype.isEmpty = function(){
     if(!this.head){
         console.log("This list is empty");
         return this;
     }
     else{
-        var firstNode = this.head;
-        console.log(`First node value is ${firstNode.val}`);
-        return firstNode.val; 
+        console.log("This list is not empty");
+        return this;
     }
 }
 
@@ -39,12 +38,15 @@ var node1 = new SLNode(1);
 var node2 = new SLNode(2);
 var node3 = new SLNode(3);
 
+var list2 = new SLQueue();
+
 list.head = node1;
 node1.next = node2;
 node2.next = node3;
 
 list.Display();
-console.log(list.Front());
+list.isEmpty();
+list2.isEmpty();
 
 
   

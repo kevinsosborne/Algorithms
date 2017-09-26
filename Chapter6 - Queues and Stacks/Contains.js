@@ -1,9 +1,5 @@
 // Create a method contains(val) to return whether given value is found within our queue.
 
-// Create SLQueue method front() to return the value at the front of our queue, without removing it.
-
-// Create SLQueue method dequeue() to remove and return value at front of queue. Remember, SLQueue uses a singly linked list (not array).
-
 // node function
 function SLNode(value){
     this.val = value;
