@@ -1,4 +1,4 @@
-// Create SLQueue method enqueue(val) to add the given value to end of our queue. Remember, SLQueue uses a singly linked list (not an array).
+// Create SLQueue method dequeue() to remove and return value at front of queue. Remember, SLQueue uses a singly linked list (not array).
 
 // node function
 function SLNode(value){
@@ -12,21 +12,17 @@ function SLQueue(){
     var tail = null;
 }
 
-SLQueue.prototype.Enqueue = function(val){
-    var newNode = new SLNode(val);
+SLQueue.prototype.Dequeue = function(){
     if(!this.head){
-        this.head = newNode;
+        console.log("This list is empty");
         return this;
     }
     else{
-        var runner = this.head;
-        while(runner.next){
-            runner = runner.next;
-        }
-        runner.next = newNode;
-        return this;
+        var removedNode = this.head;
+        this.head = this.head.next; 
+        console.log(`Dequeued value: ${removedNode.val}`);
+        return this;   
     }
-
 }
 
 SLQueue.prototype.Display = function(){
@@ -34,7 +30,7 @@ SLQueue.prototype.Display = function(){
     var runner = this.head;
     while(runner){
         count++;
-        console.log("Node " + count + " has value " + runner.val)
+        console.log(`Node ${count} has value ${runner.val}`);
         runner = runner.next;
     }
 }
@@ -49,7 +45,7 @@ node1.next = node2;
 node2.next = node3;
 
 list.Display();
-console.log(list.Enqueue(5));
+console.log(list.Dequeue());
 list.Display();
 
   
