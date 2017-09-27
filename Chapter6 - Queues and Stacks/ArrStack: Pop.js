@@ -11,4 +11,4 @@ ArrStack.prototype.pop = function(){
 }
 
 var arr = new ArrStack;
-console.log(arr.pop())
+console.log(arr.pop()) 
