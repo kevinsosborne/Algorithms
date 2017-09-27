@@ -16,6 +16,7 @@ function SLQueue(){
 SLQueue.prototype.interleaveQueue = function(){
     var count = 0;
     var runner1 = this.head;
+    
     while(runner1){
         count++;
         runner1 = runner1.next;
@@ -26,15 +27,31 @@ SLQueue.prototype.interleaveQueue = function(){
     var newList1 = new SLQueue();
     var newList2 = new SLQueue();
     newList1.head = this.head;
+    
     while(count > 0){
         runner2 = runner2.next;
-        count -= 1;        
+        count --;        
     }
+    
     newList2.head = runner2.next;
     runner2.next = null;
 
-    return [newList1, newList2];
+    // return [newList1, newList2];
     
+    var runner3 = newList2.head;
+    var runner4 = newList1.head;
+    
+   
+        temp1 = runner4.next;
+        temp2 = runner3.next;
+        runner4.next = runner3;
+        runner3.next = temp1;
+        newList2.head = temp2;
+    
+
+    return [newList1, newList2];
+
+
     // var runner1 = this.head;
     // var runner2 = this.head.next;
     // var runner3 = this.head.next.next;
