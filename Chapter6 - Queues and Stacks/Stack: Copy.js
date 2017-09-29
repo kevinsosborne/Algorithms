@@ -8,26 +8,6 @@ function listNode(val){
 function sLinkedList(){
     this.head = null;
 }
-
-sLinkedList.prototype.pop = function(){
-    if(!this.head){
-        return "List is empty";
-    }
-    else if(!this.head.next){
-        this.head = null;
-    }
-    else{
-        var prev = this.head;
-        var curr = this.head.next;
-        while(curr){
-            if(!curr.next){
-                prev.next = curr.next;
-            }
-            prev = curr;
-            curr = curr.next;
-        }
-    }
-}
     
 
 sLinkedList.prototype.copy = function(){
