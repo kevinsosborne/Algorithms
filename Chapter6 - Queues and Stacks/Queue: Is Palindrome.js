@@ -2,23 +2,23 @@
 
 // create a stack storage
 function stack(){
-    var storage = [];
+    this.storage = [];
     
     this.push = function(){
-        storage.push.apply(storage, arguments);
+        this.storage.push.apply(this.storage, arguments);
         }
 
     this.pop = function(){
-        return storage.pop.apply(storage, arguments);
+        return this.storage.pop.apply(this.storage, arguments);
     }
 
     this.size = function(){
-        return storage.length;
+        return this.storage.length;
     }
     
     this.peek = function(){
-        console.log(storage);
-        return storage;
+        console.log(this.storage);
+        return this.storage;
     }
 }
 
@@ -41,32 +41,34 @@ function queue(){
 
     this.enqueue = function(){
         inbox.push.apply(inbox, arguments);
+        return inbox;
     }
 
     this.dequeue = function(){
         if(outbox.size() === 0){
-            console.log(inbox.storage)
-            for(var i = 0; i < inbox.size(); i++){
-                // outbox.push(inbox);
+            for(var i = inbox.size() - 1; i >= 0; i--){
+                outbox.push(inbox.storage[i]);
             }
-            return;
+            return outbox;
         }
     }
     this.isPalindrome = function(str){
-        var word = str;
-        var palindrome = true;
-        for(var i = 0; i <= word.length; i++){
+        var word = str.toUpperCase();
+        var word = word.replace(/ /g,'');        
+        for(var i = 0; i < word.length; i++){
             this.enqueue(word.charAt(i));
         }
-        
-        // while(palindrome && inbox.size() > 1){
         this.dequeue();
-        // }
+        var original = inbox.storage.join("");
+        var reverse = outbox.storage.join("");
+        if(original === reverse){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
 
 var Queue = new queue();
-Queue.isPalindrome("Race Car");
-Queue.list();
-
-
+console.log(Queue.isPalindrome("Madam"));
