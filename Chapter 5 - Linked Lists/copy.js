@@ -24,7 +24,6 @@ function copy(LL){
     }
     while(runner){
         var  nextNode = new listNode(runner.val);
-        console.log(nextNode.val);
         previousNode.next = nextNode;
         previousNode = nextNode;
         runner = runner.next;
