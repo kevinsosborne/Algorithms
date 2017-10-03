@@ -50,13 +50,67 @@ class Deque{
         }
         return this;
     }
+    popBack(){
+        if(!this.head){
+            return "List is empty";
+        }
+        else{
+            var runner = this.head;            
+            var previous = runner;
+            while(runner.next){
+                previous = runner;                
+                runner = runner.next;
+            }
+            previous.next = null;
+            return this;
+        }
+    }
+    front(){
+        if(!this.head){
+            return "List is empty";
+        }
+        else{
+            return this.head.val;
+        }
+    }
+    back(){
+        if(!this.head){
+            return "List is empty";
+        }
+        else{
+            var runner = this.head;
+            while(runner.next){
+                runner = runner.next;
+            }
+            return runner.val;
+        }
+    }
+    contains(val){
+        if(!this.head){
+            return "List is empty";
+        }
+        else{
+            var runner = this.head;
+            if(runner.next){
+                if(runner.val === val){
+                    return true;
+                }
+                runner = runner.next;
+            }
+            return false;
+        }
+    }
 }
 
 var deque = new Deque();
 console.log(deque.pushFront(1));
 console.log(deque.pushFront(2));
 console.log(deque.pushFront(3));
-console.log(deque.pop)
+console.log(deque.popBack());
+console.log(deque.front());
+console.log(deque.back());
+console.log(deque.contains(3))
+console.log(deque.contains(1))
 
 // var deque1 = new Deque();
 // console.log(deque1.pushBack(1))
