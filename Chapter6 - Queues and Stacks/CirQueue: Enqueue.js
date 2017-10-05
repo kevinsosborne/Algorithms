@@ -5,32 +5,29 @@ class Queue{
     constructor(cap){
         this._storage = [];
         this._start = 0;
-        this._end = -1;
+        this._end = 0;
         this._capacity = cap;
+        this._storage.length = cap;
     }
-    isFull(){
-        console.log(this._capacity);
-        console.log(this._end);
-        console.log(this._start);
-        if(this._start == ((this._end+1) % this._capacity)){
-            return true;
+    Enqueue(val){
+        if(this._end < this._storage.length){
+        this._storage[this._end] = val;
+        this._end++;
         }
         else{
-            return false;
+            this._end = this._end % this._capacity;
+            if(this._start > this._end){
+                this._storage[this._end] = val;
+            }
         }
-    }
-
-    Enqueue(val){
-        this._storage[++this._end] = val;
     }
     Display(){
         return this._storage;
     }
 }
 
-var q = new Queue(0);
-// q.Enqueue("First thing");
-// q.Enqueue("Second thing");
+var q = new Queue(2);
+q.Enqueue("First thing");
+q.Enqueue("Second thing");
 console.log(q.Display());
-console.log(q.isFull());
 
