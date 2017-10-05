@@ -1,4 +1,4 @@
-// Create CirQueue method dequeue() that removes / returns front value, or null on fail.
+// Return whether queue is full.
 
 
 class Queue{
@@ -57,6 +57,15 @@ class Queue{
             }
         }
     }
+    isFull(){
+        console.log("Start val " + this._start + " End Value " + this._end);
+        if(this._start === 0 && this._end == capacity -1 || this._start == this._end){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     Display(){
         return this._storage;
     }
@@ -84,6 +93,9 @@ console.log(q.Display());
 q.Enqueue("Sixth thing");
 // q.Enqueue("Fourth thing");
 console.log(q.Display());
+console.log(q.isFull());
+q.Dequeue();
+console.log(q.isFull());
 
 
 
