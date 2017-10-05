@@ -1,4 +1,6 @@
 // Return (not remove) the queue's front value.
+// First In First Out
+
 
 function CirQueue(cap){
     this.head = 0;
