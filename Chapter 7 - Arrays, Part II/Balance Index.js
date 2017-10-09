@@ -7,7 +7,8 @@ function balanceIndex(arr){
     }
     var leftCount = 0;
     for(var idx = 0; idx < arr.length; idx++){
-        totalCount -= arr[idx];
+        totalCount -= arr[idx]; 
+        console.log("total Count: " + totalCount + " left Count: " + leftCount);       
         if(leftCount == totalCount){
             return idx;
         }
