@@ -14,12 +14,13 @@ function binarySearch(array, num){
         if(num > middle){
             left = middle + 1;
             middle = Math.floor((left + right) / 2);
+            console.log("Entering Greater Than Middle " + middle)
         }
         else{
-            console.log(num + " < " + middle);
             right = middle;
-            console.log(left, right);            
             middle = Math.floor(left + right / 2);
+            console.log("Entering Less Than Middle " + middle)
+            
         }
     }
 }
@@ -36,4 +37,4 @@ function createNumArray(num){
 }
 
 var arr = createNumArray(100);
-console.log(binarySearch(arr, 39));
+console.log(binarySearch(arr, 4));
