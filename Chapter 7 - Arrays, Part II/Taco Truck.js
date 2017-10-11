@@ -31,10 +31,12 @@ function TacoTruck(arr){
     for(var x = leftx; x <= (Math.abs(rightx)); x++){
         move[0] = x;
         for(var i = 0; i < arr.length; i++){
-                tempDistance += Math.abs((arr[i][0] - move[0]) + (arr[i][1] - move[1]));
-                console.log("Element " + i + " has a distance of " + tempDistance);
+                tempDistance += (Math.abs(arr[i][0] - move[0]) + Math.abs(arr[i][1] - move[1]));
+                // console.log("Element " + i + " has a distance of " + (Math.abs(arr[i][0] - move[0]) + Math.abs(arr[i][1] - move[1])));
+                // console.log("Element " + i + " has an x distance of " + Math.abs(arr[i][0] - move[0]));
+                // console.log("Element " + i + " has an arr of i x coordinate of " + arr[i][0])
                 }
-                console.log(tempDistance, move);
+                // console.log(tempDistance, move);
         if(tempDistance < totalDistance){
             totalDistance = tempDistance;
             optimalx = x;
@@ -43,21 +45,25 @@ function TacoTruck(arr){
             
     }
     move[0] = optimalx;
+    
     var optimaly = 0;
     for(var y = bottomy; y <= (Math.abs(topy)); y++){
         move[1] = y;
         for(var i = 0; i < arr.length; i++){
-                tempDistance += Math.abs((arr[i][0] - move[0]) + arr[i][1] - move[1]);
+                tempDistance += (Math.abs(arr[i][0] - move[0]) + Math.abs(arr[i][1] - move[1]));
+                // console.log("Element " + i + " has a distance of " + (Math.abs(arr[i][0] - move[0]) + Math.abs(arr[i][1] - move[1])));
+                // console.log("Element " + i + " has an x distance of " + Math.abs(arr[i][0] - move[0]))
                 }
-                console.log(tempDistance, move);
+                // console.log(tempDistance, move);
         if(tempDistance < totalDistance){
             totalDistance = tempDistance;
-            optimalx = x;
+            optimaly = y;
         }
         tempDistance = 0;
     }
-return [optimalx, optimaly, totalDistance, leftx, rightx];        
+    move[1] = optimaly;
+return move;        
 }
 
-var arr = [[10,0], [-1,10], [2,4]];
+var arr = [[-1,10], [2,4],[10,0]];
 console.log(TacoTruck(arr));
