@@ -23,22 +23,12 @@ class Sigma{
     }
 }
 
-function SuccessFunction() {
-    console.log(milliSeconds);
-}
 
 var s = new Sigma();
 console.log(s.iSigma(3));
 console.log(s.iSigma(5));
 
 
-// var milliSeconds = new Date().getMilliseconds();
-console.log(s.iSigma(20));
-// SuccessFunction();
-
-var milliSeconds = new Date().getMilliseconds();
-console.log(s.iSigma(20));
-SuccessFunction();
 
 
 
