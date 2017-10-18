@@ -18,4 +18,5 @@ function removeDuplicates(arr){
     return newArray;
 }
 
-console.log(removeDuplicates([1,2,1,3,4,2]))
+console.log(removeDuplicates([1,2,1,3,4,2]));
+
