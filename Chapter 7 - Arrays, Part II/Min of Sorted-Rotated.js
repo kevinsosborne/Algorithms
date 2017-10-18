@@ -3,20 +3,21 @@
 function minOfSortedRotated(arr) {
     var left = 0
     var mid = Math.floor((arr.length)/2)
-    console.log(arr[mid]);
-    console.log((arr.length)/2);
     var right = arr.length - 1
 
     while (mid != left) {
         
         if (arr[mid] > arr[right]) {
-            console.log(arr[mid] + " " + arr[right]);
+            console.log("Entering Mid greater than Right");
             left = mid
         }
         else if (arr[left] > arr[mid]) {
+            console.log("Entering Left is greater than Mid")
+            console.log(arr[left]);
             right = mid
         }
         mid = Math.floor( (right - left)/2) + left
+        console.log(mid);
     }
 
     if (arr[mid] <= arr[right]) {
