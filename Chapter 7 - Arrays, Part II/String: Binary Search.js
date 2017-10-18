@@ -23,13 +23,6 @@ function binarySearchString(str1, str2) {
         mid = Math.floor( (right - left)/2) + left
         console.log(mid);
     }
-
-    // if (str1[mid] <= str1[right]) {
-    //     return str1[mid]
-    // }
-    // else {
-    //     return str1[right]
-    // }
 }
 
 console.log(binarySearchString(" &-379DEFXZ[abcz|", "3"));
