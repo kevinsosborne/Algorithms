@@ -7,6 +7,8 @@ function arrBufferCopy(sourceArr, destArr, sourceStartIdx, destStartIdx, numVals
             
 
         if(i == sourceArr.length){
+            console.log("Entering If");
+            console.log(" i " + i + " source Arr " + sourceArr[i]);            
             i = 0;
             
             if(destStartIdx == destArr.length){
@@ -21,13 +23,11 @@ function arrBufferCopy(sourceArr, destArr, sourceStartIdx, destStartIdx, numVals
                 destArr[destStartIdx] = sourceArr[i];            
                 destStartIdx++;
             }
-        }   
-        
-
-        
-       
+            i++;
+        }    
         else{
-            console.log("source Arr " + sourceArr[i] + " i " + i);
+            console.log("Entering Else");
+            console.log(" i " + i + " source Arr " + sourceArr[i]);
             
             if(destStartIdx == destArr.length){
                 destStartIdx = 0;
