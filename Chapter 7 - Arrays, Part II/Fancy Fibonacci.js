@@ -29,6 +29,6 @@ class fibonacci{
 }
 
 var x = new fibonacci();
-console.log(x.fib(6));
+console.log(x.fib(0));
 console.log(x.display());
 console.log(x.fib(6));
