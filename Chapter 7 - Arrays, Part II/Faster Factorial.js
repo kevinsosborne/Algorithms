@@ -15,11 +15,11 @@ class fasterFactorial{
                 i++;
             }
             this.integers[num] = val;
+            return val;
         }
         else{
-            this.integers[num];
+            return this.integers[num];
         }
-    return this.integers;
     }
 }
 
