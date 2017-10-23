@@ -23,7 +23,18 @@ function medianOfSortedArrays(arr1, arr2){
         }
     }
 
-    return arr3;
+    if((arr3.length - 1) % 2 == 0){
+        return arr3[(arr3.length - 1) / 2];
+    }
+    else{
+        var number = (arr3.length - 1) / 2;
+        var floor = Math.floor(number);
+        var ceil = Math.ceil(number);
+        // console.log(ceil);
+        return (arr3[floor] + arr3[ceil]) / 2;
+    }
 }
 
 console.log(medianOfSortedArrays([1,5,9],[1,2,3,4,5,6]));
+console.log(medianOfSortedArrays([1,5,9],[1,2,3,4,5]));
+
